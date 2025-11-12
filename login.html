@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSI UMKM Centre - Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/login.css">
+</head>
+<body class="login-main">
+    
+    <svg class="shape-right-up" width="77" height="78" viewBox="0 0 77 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M77 77.2465V0H0.43588C58.2201 0 77 21.2145 77 77.2465Z" fill="#00A39D"/>
+    </svg>
+    <svg class="shape-left-down" xmlns="http://www.w3.org/2000/svg" width="91" height="91" viewBox="0 0 91 91" fill="none">
+        <path d="M91 90.2465V0H0.43588C58.2201 0 91 31.2145 91 90.2465Z" fill="#F8AD3C"/>
+    </svg>
+
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="assets/images/logo-bsi-umkm-centre.svg" alt="BSI UMKM Centre Logo" class="logo">
+            </div>
+            
+            <div class="nav-menu">
+                <button class="nav-btn">Tentang Kami</button>
+                <button class="nav-btn">Produk</button>
+                <a href="faq.html" class="nav-btn">FAQ</a>
+            </div>
+            
+            <button class="btn-login-nav">Login</button>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="background-pattern">
+            <!-- Removed main logo image, keeping only background pattern -->
+        </div>
+
+        <div class="login-section">
+            <div class="form-container">
+                <div class="welcome-text">
+                    <h1 class="title">Selamat<br>Datang...</h1>
+                    <p class="subtitle">
+                        Assalamualaikum warahmatullahi wabarakatuh,<br>
+                        Selamat datang di BSI UMKM Centre cabang<br>
+                        Yogyakarta.
+                    </p>
+                </div>
+
+                <form class="login-form" id="loginForm">
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            class="form-input" 
+                            placeholder="Masukkan Email anda..."
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="password">Kata sandi</label>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            class="form-input" 
+                            placeholder="Masukkan Kata sandi anda..."
+                            required
+                        >
+                        
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" class="checkbox">
+                                <span class="checkmark"></span>
+                                <span class="checkbox-text">Ingat saya</span>
+                            </label>
+                            <button type="button" class="forgot-password">Lupa Password?</button>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-login">Login sekarang!</button>
+                        <button type="button" class="btn-register">Belum punya akun? Registrasi akun baru</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/login.js"></script>
+</body>
+</html>

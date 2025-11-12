@@ -1,0 +1,998 @@
+/* BSI UMKM Centre - FAQ Page Styles */
+:root {
+  /* Brand Colors - Standardized */
+  --primary: #00A39D;
+  --secondary: #F8AD3C;
+  --success: #04C8BC;
+  --warning: #F9BD50;
+  
+  /* Legacy support */
+  --primer: #00A39D;
+  --sekunder: #F8AD3C;
+  --base-layer: #FFFFFF;
+  --green-50: #EFFEFC;
+  --green-500: #04C8BC;
+  --green-600: #00A39D;
+  --yellow-300: #F9BD50; /* Warna yang dikonfirmasi untuk highlight */
+  --yellow-400: #F8AD3C; /* Warna Oranye/Kuning untuk teks UMKM */
+  
+  /* Neutral Colors */
+  --white: #FFFFFF;
+  --black: #222222;
+  --gray-50: #F8F9FA;
+  --gray-100: #E9ECEF;
+  --gray-500: #6C757D;
+  --gray-900: #212529;
+  --neutral-100: #FFFFFF;
+  
+  /* Text Colors */
+  --text-primary: #2C3E50;
+  --text-secondary: #7F8C8D;
+  --text-muted: #6C757D;
+  --text-dark: #2C3E50;
+  --text-light: #7F8C8D;
+  
+  /* Layout */
+  --container-max-width: 1200px;
+  --container-padding: 24px;
+  --border-radius: 8px;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --max-width: 1200px;
+  
+  /* Typography */
+  --font-family: 'Lato', sans-serif;
+  --font-lato: 'Lato', sans-serif;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 32px;
+  --font-size-4xl: 48px;
+  
+  /* Z-Index Management */
+  --z-background: -1;
+  --z-base: 1;
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-fixed: 30;
+  --z-modal: 40;
+  --z-popover: 50;
+  --z-tooltip: 60;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Lato', sans-serif;
+  background-color: var(--neutral-100);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* ===============================
+   DECORATIVE SHAPES - KONSISTEN DENGAN LOGIN/REGISTER
+   =============================== */
+
+/* Shape Right Up - Pojok Kanan Atas */
+.shape-right-up {
+    /* PERBAIKAN: Ubah dari fixed menjadi absolute */
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 77px;
+    height: 78px;
+    z-index: 1001;
+    pointer-events: none;
+    display: block;
+}
+
+/* Shape Left Down - Area Header/Navbar */
+.shape-left-down {
+    /* PERBAIKAN: Ubah dari fixed menjadi absolute */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    transform: rotate(180deg);
+    z-index: 1001;
+    pointer-events: none;
+}
+
+/* ===============================
+   NAVBAR - KONSISTEN DENGAN LOGIN/REGISTER
+   =============================== */
+.navbar {
+    background: var(--white);
+    box-shadow: 0px 2px 12px 0px rgba(20, 20, 43, 0.08);
+    position: relative;
+    width: 100%;
+    height: 80px;
+    z-index: 1000;
+}
+
+.navbar-wrapper {
+    position: relative; /* Penting! Agar shapes diposisikan relatif terhadap wrapper ini */
+    width: 100%;
+    /* Navbar dan shapes berada di bagian atas halaman */
+    margin-bottom: 0px; /* Kompensasi agar main content bisa naik */
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 15px 30px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.nav-logo .logo {
+    width: 174px !important;
+    height: 143.81px !important;
+    max-width: 174px !important;
+    max-height: 143.81px !important;
+    filter: drop-shadow(0px 0px 36px rgba(255, 255, 255, 0.5));
+    object-fit: contain;
+}
+
+.nav-logo a {
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.nav-logo a:hover {
+    transform: scale(1.05);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    padding: 10px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: var(--color-primer, #00A39D);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.nav-btn:hover {
+    background: rgba(0, 163, 157, 0.1);
+    color: var(--color-primer, #00A39D);
+}
+
+.nav-btn.active {
+    color: var(--color-sekunder, #F8AD3C);
+    background: rgba(248, 173, 60, 0.1);
+}
+
+.btn-login-nav {
+    background: var(--primer);
+    border: none;
+    border-radius: 8px;
+    min-width: 120px;
+    height: 42px;
+    padding: 8px 16px;
+    font-family: var(--font-lato);
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--white);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-login-nav:hover {
+    background: #008A82;
+}
+
+/* Container System */
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+main .container {
+    /* Padding bawah yang besar agar footer tidak menutupi tombol dan teks */
+    padding-bottom: 150px; 
+}
+
+/* Grid System */
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+.grid-1 { grid-template-columns: 1fr; }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* Typography */
+.h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 58px;
+}
+
+.h2 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 40px;
+}
+
+.paragraph {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.button-text {
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+/* ===============================
+   MAIN CONTENT WITH RESPONSIVE BACKGROUND
+   =============================== */
+.main-content {
+  position: relative;
+  background: transparent;
+  margin-top: 0; 
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Break Without Ring background - Responsive Scaling */
+.main-content::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: calc(70vh + 80px);
+  
+  /* Latar belakang SVG Anda */
+  background: url("../images/break-polosan.svg") no-repeat center top;
+  background-size: cover;
+  background-attachment: fixed;
+  opacity: 1;
+  pointer-events: none;
+  z-index: 1;
+  
+  /* ==================================================== */
+  /* PERBAIKAN: MENERAPKAN EFEK FADING (MEMUDAR) */
+  /* Masking image menggunakan linear-gradient. Gradient ini transparan (hitam) di atas, 
+     dan semakin buram (putih transparan/putih) di bagian bawah. */
+  mask-image: linear-gradient(to bottom, 
+                              rgba(0, 0, 0, 1) 50%, /* Jelas (tidak termask) di 50% atas */
+                              rgba(0, 0, 0, 0) 95%  /* Memudar dan hilang sepenuhnya di 95% ke bawah */
+                             );
+  -webkit-mask-image: linear-gradient(to bottom, 
+                                     rgba(0, 0, 0, 1) 50%, 
+                                     rgba(0, 0, 0, 0) 95%
+                                    );
+  /* ==================================================== */
+}
+
+/* ===============================
+   FOOTER FINAL POSITION - TURUNKAN SESUAI REFERENSI (UPDATED)
+   =============================== */
+
+.footer-background {
+  position: relative;
+  background: transparent;
+  margin-top: 0;
+  overflow: visible;
+
+  /* Turunkan background lebih jauh */
+  padding: 220px 0 80px 0; /* naikkan nilai ini untuk menurunkan wave */
+}
+
+.footer-background::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-height: 750px; /* pastikan wave penuh */
+  left: 0;
+  top: 0;
+  background: url("../images/footer.svg") no-repeat top center;
+  background-size: cover;
+  opacity: 1;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Footer container turun mengikuti wave */
+footer {
+  position: relative;
+  z-index: 5;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 180px; /* sebelumnya 120px — ini yang menurunkan isi footer */
+  color: white;
+}
+
+/* Wrapper untuk konten footer */
+.footer-content-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: var(--container-max-width);
+  width: 100%;
+  padding: 0 24px;
+}
+
+/* FAQ Section - Tambahkan Padding Bawah yang Besar */
+.faq-section {
+  padding: 60px 0; /* Padding atas normal */
+  background: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+/* Penyesuaian FAQ Header untuk Highlight */
+.faq-header {
+  /* PERBAIKAN: Mengubah perataan teks menjadi RATA TENGAH */
+  text-align: center; 
+  margin-bottom: 60px;
+}
+
+.faq-header h1 {
+  /* Gaya Judul Utama (48px, 58 Line Height, ExtraBold) */
+  font-size: 48px;
+  line-height: 58px;
+  font-weight: 900; /* ExtraBold */
+  /* PERBAIKAN: Mengatur warna teks default menjadi Primer (Teal) */
+  color: var(--primer); 
+  margin-bottom: 16px;
+}
+
+/* Styling untuk teks "Ask Questions" */
+.faq-header h1 .highlight-questions {
+    /* PENGGUNAAN WARNA YANG DIKONFIRMASI: var(--yellow-300) */
+    background-color: var(--yellow-300); 
+    /* Menerapkan warna teks gelap/hitam (sesuai Figma) */
+    padding: 2px 10px;
+    border-radius: 12px;
+    margin-left: 5px;
+    white-space: nowrap; /* Mencegah Questions turun baris */
+}
+
+.faq-header h1 .highlight {
+  color: var(--sekunder);
+}
+
+.faq-header h1 .primer {
+  color: var(--primer);
+}
+
+.faq-header p {
+  /* PERBAIKAN: Mengatur warna paragraph menjadi HITAM SOLID (#000000) */
+  color: #000000; 
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.faq-content {
+  display: grid;
+  /* GANTI BARIS INI: Dari 1fr 1fr menjadi 6fr 4fr */
+  grid-template-columns: 6fr 4fr; /* Rasio 60% untuk FAQ (kiri) dan 40% untuk Contact (kanan) */
+  gap: 80px;
+  align-items: start;
+}
+
+/* FAQ Questions */
+.faq-questions, .faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.faq-item:hover {
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.faq-question {
+  padding: 18px 20px;
+  background: white;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-dark);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s ease;
+}
+
+.faq-question span {
+  flex: 1;
+  line-height: 1.5;
+}
+
+.faq-question:hover {
+  background: rgba(0, 163, 157, 0.03);
+}
+
+.faq-icon {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  background: var(--primer);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 400;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+.faq-answer {
+  padding: 0 24px 20px;
+  color: var(--text-light);
+  line-height: 1.6;
+  display: none;
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+.faq-item.active .faq-icon {
+  background: var(--sekunder);
+  transform: rotate(45deg);
+}
+
+/* ===============================
+   CONTACT SECTION - Disesuaikan dengan Desain Figma
+   =============================== */
+.contact-section {
+  /* Mengatur lebar container berdasarkan Figma Frame 1000001537 */
+  width: 452px; 
+  /* Memastikan konten di dalamnya rata tengah */
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Gap utama antara elemen (Frame 1000001537) */
+  gap: 19px; 
+}
+
+/* Ilustrasi Blob (menggunakan SVG) */
+.contact-illustration-svg-wrapper {
+    /* Dimensi Frame 1000001534 */
+    width: 293px;
+    height: 267px;
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.contact-illustration-svg-wrapper img {
+    /* Memastikan SVG mengisi wadahnya */
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Tanda Tanya (?) - Posisikan simbol '?' di tengah SVG */
+.contact-illustration-svg-wrapper .question-mark-container {
+    /* Gaya Tanda Tanya (Sesuai Figma: 150px, color: F8AD3C) */
+    font-size: 150px;
+    font-weight: 600; 
+    line-height: 150%;
+    color: var(--sekunder); /* Warna Oranye */
+    position: absolute;
+    /* Posisikan agar terlihat di tengah blob */
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+/* Teks Judul dan Subjudul */
+.contact-section h2 {
+    /* Gaya H2: 36px, Line Height 46px */
+    font-size: 36px;
+    line-height: 46px;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 4px; /* Sesuai gap 4px antara h2 dan p di Figma */
+}
+
+.contact-section p {
+    /* Gaya Caption: 14px, Line Height 22px */
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+    color: #000000;
+    margin-bottom: 60px; /* Jarak diatur oleh gap container */
+}
+
+/* Input Field Baru */
+.contact-input-field {
+    /* Component 1 di Figma */
+    width: 100%; /* Lebar penuh 452px */
+    height: 52px;
+    padding: 14px 20px;
+    box-sizing: border-box;
+    
+    /* Border disesuaikan (1px solid Primer) */
+    border: 1px solid var(--primer); 
+    border-radius: 8px;
+    
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--gray-900);
+    
+    margin-bottom: 0; /* Jarak diatur oleh gap container */
+    text-align: left;
+}
+
+.contact-input-field:focus {
+    border-color: var(--sekunder); /* Efek fokus opsional */
+}
+
+/* Tombol CTA di Bawah Input */
+.contact-buttons {
+  /* Frame 1000001535 */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px; /* Gap 6px antar tombol */
+  width: 100%; /* Lebar penuh 452px */
+  margin-top: 0; /* Jarak diatur oleh gap container */
+}
+
+/* Tombol Email (Teal) */
+.btn-email-new {
+    /* Style dasar Regist 1 */
+    flex: 1; 
+    height: 48px; 
+    padding: 14px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    
+    border: 1px solid rgba(128, 128, 128, 0.5); /* Border abu-abu 1px */
+    background: var(--primer); /* Teal */
+    color: var(--white);
+    
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-email-new:hover {
+    background: var(--green-500);
+}
+
+/* Tombol WhatsApp (Orange) */
+.btn-whatsapp-new {
+    /* Style dasar Sign in 1 */
+    flex: 1; 
+    height: 48px; 
+    padding: 14px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    
+    border: 1px solid rgba(128, 128, 128, 0.5); /* Border abu-abu 1px */
+    background: var(--sekunder); /* Orange */
+    color: var(--white);
+    
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-whatsapp-new:hover {
+    background: var(--yellow-300);
+}
+
+/* Hapus styles lama yang tidak digunakan di HTML baru */
+.contact-icon, .btn-email, .btn-whatsapp {
+    display: none !important; 
+}
+
+/* ===============================
+   FOOTER STYLES - INTEGRATED WITH NEW POSITIONING
+   =============================== */
+
+/* Flexbox untuk Logo dan Kontak/Sosial Media (Empat Kolom) */
+.footer-content {
+  display: flex; 
+  align-items: flex-end; 
+  gap: 0; 
+  justify-content: space-between; 
+  width: 100%;
+  padding-bottom: 0; 
+}
+
+/* Div Kiri: Logo dan Nama UMKM Center (KOLOM MERAH + GARIS PUTIH) */
+.footer-left-content {
+    flex: none; 
+    width: 280px; 
+    border-right: 2px solid rgba(255, 255, 255, 0.8); 
+    padding: 0 40px 0 0; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    align-items: flex-start; 
+    height: 100%; 
+    min-height: 180px; 
+}
+
+/* Footer Logo */
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px; 
+  margin-bottom: 0;
+  width: 174px; 
+}
+
+.footer-logo img {
+    width: 174px;
+    height: 143.81px; 
+    filter: drop-shadow(0px 0px 36px rgba(255, 255, 255, 0.5));
+    flex: none;
+    transition: filter 0.3s ease;
+}
+
+.footer-logo a {
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.footer-logo a:hover {
+    opacity: 0.8;
+}
+
+/* Logo Subtitle */
+.logo-subtitle {
+    font-family: var(--font-lato);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--white);
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+}
+
+/* KOLOM 2: Kontak dan Alamat (AREA BIRU) */
+.footer-contact-info {
+    flex: 1; 
+    max-width: 250px; 
+    height: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    align-items: flex-start;
+    gap: 8px; 
+    padding: 0 20px; 
+}
+
+/* KOLOM 3: Sosial Media (AREA HIJAU) */
+.footer-social-section {
+    flex: 1.5; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    align-items: flex-start;
+    height: 100%;
+    padding: 0 20px; 
+}
+
+.social-links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+}
+
+/* Item Sosial Media */
+.social-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--white);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    fill: var(--white);
+    flex-shrink: 0;
+}
+
+/* KOLOM 4: Tombol CTA (AREA KUNING/HIJAU-TUA) */
+.footer-cta-col {
+    flex: 1.2; 
+    display: flex;
+    justify-content: flex-end; 
+    align-items: flex-end; 
+    height: 100%;
+    padding: 0 0 0 20px; 
+}
+
+/* TOMBOL CTA BARU (HIJAU/KUNING) */
+.footer-cta-button-new {
+    background: var(--color-primer, #00A39D);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    border: 2px solid var(--color-primer, #00A39D);
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.footer-cta-button-new:hover {
+    background: white;
+    color: var(--color-primer, #00A39D);
+    transform: translateY(-2px);
+}
+
+/* Hapus atau set display: none untuk kelas lama yang tidak terpakai */
+.footer-right-content,
+.footer-right-group, 
+.footer-info-row {
+    display: none !important; 
+}
+
+/* Alamat */
+.footer-address {
+    margin-top: 0;
+    margin-bottom: 0; 
+    font-size: 16px;
+    line-height: 26px;
+}
+
+/* Item Kontak (Telepon dan Email) */
+.contact-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+  gap: 8px;
+  margin-bottom: 0; 
+}
+
+/* Ikon Kontak */
+.contact-icon-svg {
+  width: 24px;
+  height: 24px;
+  fill: white;
+  flex-shrink: 0; 
+}
+
+.contact-item span {
+    font-size: 16px;
+    line-height: 26px;
+}
+
+/* Legacy logo icon (backup if still using old style) */
+.footer-logo-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--sekunder), var(--yellow-300));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.footer-contact {
+  color: white;
+  line-height: 1.6;
+}
+
+/* ===============================
+   PERFORMANCE OPTIMIZATIONS
+   =============================== */
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .main-content::before,
+  .footer-background::before {
+    background-attachment: scroll;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .main-content::before,
+  .footer-background::before {
+    background-size: cover;
+  }
+}
+
+/* ===============================
+   RESPONSIVE DESIGN - UPDATED WITH NEW FOOTER POSITIONING
+   =============================== */
+
+/* Desktop Large - 1025px+ (Default styles above) */
+@media (min-width: 1025px) {
+  .main-content::before {
+    height: 70vh;
+    background-position: center top;
+  }
+}
+
+/* Tablet - 1024px */
+@media (max-width: 1024px) {
+  .footer-background {
+    padding: 180px 0 60px 0;
+  }
+  
+  footer {
+    padding-top: 140px;
+  }
+
+  /* Background Adjustments */
+  .main-content::before {
+    height: 60vh;
+    background-position: center top;
+  }
+
+  main .container {
+    padding-bottom: 0px; 
+  }
+
+  .footer-content-wrapper {
+    min-height: 180px;
+    padding: 50px 0;
+  }
+  
+  .footer-left-content {
+    width: 240px;
+    min-height: 160px;
+    padding: 0 30px 0 0;
+  }
+  
+  .footer-contact-info, 
+  .footer-social-section, 
+  .footer-cta-col {
+    padding: 0 15px;
+  }
+}
+
+/* Mobile - 768px */
+@media (max-width: 768px) {
+  .footer-background {
+    padding: 160px 0 40px 0;
+  }
+  
+  footer {
+    padding-top: 120px;
+  }
+
+  .footer-content-wrapper {
+    flex-direction: column;
+    align-items: center;
+    min-height: auto;
+    padding: 40px 0;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .footer-left-content {
+    width: 100%;
+    border-right: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+    padding: 0 0 30px 0;
+    align-items: center;
+    min-height: auto;
+  }
+  
+  .footer-contact-info, 
+  .footer-social-section, 
+  .footer-cta-col {
+    width: 100%;
+    max-width: none;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+  
+  .contact-item, .social-item {
+    justify-content: center;
+  }
+}
+
+/* Mobile Small - 480px */
+@media (max-width: 480px) {
+  .footer-content-wrapper {
+    padding: 30px 0;
+  }
+  
+  .footer-logo img {
+    width: 140px;
+    height: auto;
+  }
+  
+  .footer-cta-button-new {
+    padding: 16px 32px;
+    font-size: 14px;
+  }
+}

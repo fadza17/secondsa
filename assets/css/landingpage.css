@@ -1,0 +1,1213 @@
+:root {
+    /* Brand Colors - BSI UMKM Centre - Exact Figma specifications */
+    --color-primer: #00A39D;    /* BSI Teal - primary interactions */
+    --color-sekunder: #F8AD3C;  /* BSI Orange - secondary/highlights */
+    --primary: #00A39D;
+    --secondary: #F8AD3C;
+    --success: #04C8BC;
+    --warning: #F9BD50;
+    
+    /* Legacy support for cross-page consistency */
+    --primer: #00A39D;
+    --sekunder: #F8AD3C;
+    --green-50: #EFFEFC;
+    --green-500: #04C8BC;
+    --green-600: #00A39D;
+    --yellow-300: #F9BD50;
+    --yellow-400: #F8AD3C;
+    
+    /* Neutral Colors */
+    --white: #FFFFFF;
+    --black: #222222;
+    --gray-50: #F8F9FA;
+    --gray-100: #E9ECEF;
+    --gray-500: #6C757D;
+    --gray-900: #212529;
+    --neutral-100: #FFFFFF;
+    
+    /* Text Colors */
+    --text-primary: #2C3E50;
+    --text-secondary: #7F8C8D;
+    --text-muted: #6C757D;
+    --text-dark: #2C3E50;
+    --text-light: #7F8C8D;
+    --text-gray: #666666;
+    
+    /* Layout */
+    --container-max-width: 1200px;
+    --container-padding: 24px;
+    --border-radius: 8px;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --max-width: 1200px;
+    
+    /* Typography - Lato family as per guidelines */
+    --font-family: 'Lato', sans-serif;
+    --font-lato: 'Lato', sans-serif;
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-base: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 20px;
+    --font-size-2xl: 24px;
+    --font-size-3xl: 32px;
+    --font-size-4xl: 48px;
+    
+    /* Z-Index Management - Following guidelines */
+    --z-background: -1;
+    --z-base: 1;
+    --z-patterns: 1;
+    --z-logo: 5;
+    --z-content: 10;
+    --z-dropdown: 10;
+    --z-sticky: 20;
+    --z-fixed: 30;
+    --z-navbar: 1000;
+    --z-shapes: 1001;
+    --z-modal: 40;
+    --z-popover: 50;
+    --z-tooltip: 60;
+}
+
+/* ===============================
+   BASE STYLES - Mobile-first responsive
+   =============================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    font-family: var(--font-lato);
+    background-color: var(--white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Accessibility - prefers-reduced-motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* ===============================
+   TYPOGRAPHY SYSTEM - Figma exact specifications
+   =============================== */
+.h1 {
+    font-family: var(--font-lato);
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 58px;
+}
+
+.h2 {
+    font-family: var(--font-lato);
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+}
+
+.h3 {
+    font-family: var(--font-lato);
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 36px;
+}
+
+.h4 {
+    font-family: var(--font-lato);
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 30px;
+}
+
+.paragraph {
+    font-family: var(--font-lato);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.button-text {
+    font-family: var(--font-lato);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+/* ===============================
+   CONTAINER SYSTEM - CSS logical properties
+   =============================== */
+.container {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding);
+}
+
+/* ===============================
+   NAVBAR WRAPPER & DECORATIVE SHAPES - Cross-page consistency
+   =============================== */
+.navbar-wrapper {
+    position: relative; /* Menjadikan navbar sticky */
+    top: 0;
+    z-index: var(--z-navbar);
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+.navbar {
+    background: var(--white);
+    box-shadow: 0px 2px 12px rgba(20, 20, 43, 0.08);
+    position: relative;
+    width: 100%;
+    height: 80px;
+    z-index: var(--z-navbar);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding-inline: 30px;
+    max-width: 100%;
+    margin-inline: auto;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    height: 51px;
+    z-index: 1002; /* Pastikan logo di atas toggle */
+}
+
+.nav-logo .logo {
+    width: 174px !important;
+    height: 143.81px !important;
+    max-width: 174px !important;
+    max-height: 143.81px !important;
+    filter: drop-shadow(0px 0px 36px rgba(255, 255, 255, 0.5));
+    object-fit: contain;
+}
+
+/* Navigation Link Styling - Cross-page consistency */
+.nav-logo a {
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.nav-logo a:hover {
+    transform: scale(1.05);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    padding: 10px;
+    font-family: var(--font-lato);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: var(--color-primer);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.nav-btn:hover {
+    background: rgba(0, 163, 157, 0.1);
+    color: var(--color-primer);
+}
+
+.nav-btn.active {
+    color: var(--color-sekunder);
+    background: rgba(248, 173, 60, 0.1);
+}
+
+/* :focus-visible states for accessibility */
+.nav-btn:focus-visible {
+    outline: 2px solid var(--color-primer);
+    outline-offset: 2px;
+}
+
+.btn-login-nav {
+    background: var(--color-primer);
+    border: none;
+    border-radius: 8px;
+    min-width: 120px;
+    height: 42px;
+    padding: 8px 16px;
+    font-family: var(--font-lato);
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--white);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px; /* Jarak antara nav-menu dan login */
+}
+
+/* Exact Figma hover states - Teal → Dark Teal */
+.btn-login-nav:hover {
+    background: #008A82;
+    transform: translateY(-2px);
+}
+
+.btn-login-nav:focus-visible {
+    outline: 2px solid var(--color-sekunder);
+    outline-offset: 2px;
+}
+
+/* Mobile Toggle Button (Hidden on Desktop) */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1002;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--color-primer);
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+/* Toggle Animation */
+.nav-toggle.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+
+/* Decorative Shapes - Cross-page consistency */
+.shape-right-up {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 77px;
+    height: 78px;
+    z-index: var(--z-shapes);
+    pointer-events: none;
+    display: block;
+}
+
+.shape-left-down {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    transform: rotate(180deg);
+    z-index: var(--z-shapes);
+    pointer-events: none;
+}
+
+/* ===============================
+   HERO SECTION - Figma exact specifications with Mask group.svg
+   =============================== */
+.hero {
+    background: var(--white);
+    padding-block: 80px;
+    position: relative;
+    min-height: 600px;
+    margin-top: 24px; /* Tambahkan baris ini */
+}
+
+/* Hero Background Pattern - Break.svg Integration */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: var(--z-patterns);
+    background: var(--white) url("../images/Break.svg") no-repeat center center;
+    background-size: cover;
+    opacity: 1;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: var(--z-content);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    min-height: 500px;
+}
+
+.hero-text {
+    max-width: 600px;
+}
+
+.hero-text h1 {
+    color: var(--color-primer);
+    margin-bottom: 16px;
+    font-size: clamp(36px, 4vw, 54px);
+    line-height: 1.1;
+    font-weight: 700;
+}
+
+.hero-text h1 .highlight {
+    color: var(--color-sekunder);
+}
+
+.hero-text h2 {
+    color: var(--color-primer);
+    margin-bottom: 24px;
+    font-size: clamp(32px, 3.5vw, 48px);
+    line-height: 1.1;
+    font-weight: 600;
+}
+
+.hero-text p {
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* Button Implementation - Exact Figma specifications */
+.btn-primary {
+    background: var(--color-primer);
+    color: var(--white);
+    padding: 14px 20px;
+    width: 200px; /* Reduced width for better responsiveness */
+    height: 48px;
+    border-radius: 8px;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    font-family: var(--font-lato);
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Exact Figma hover states - Teal → Light Teal */
+.btn-primary:hover {
+    background: #C7FFF7;
+    color: var(--color-primer);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: var(--white);
+    color: var(--color-primer);
+    padding: 14px 20px;
+    width: 200px; /* Reduced width for better responsiveness */
+    height: 48px;
+    border: 2px solid var(--color-primer);
+    border-radius: 8px;
+    font-family: var(--font-lato);
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-secondary:hover {
+    background: var(--color-primer);
+    color: var(--white);
+}
+
+/* Hero Image/Card */
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 163, 157, 0.15);
+    text-align: center;
+    max-width: 400px;
+}
+
+.hero-logo-display {
+    width: 200px;
+    height: 120px;
+    background: linear-gradient(135deg, var(--green-50), var(--white));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-inline: auto;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.hero-logo-container {
+    display: grid;
+    grid-template-columns: max-content;
+    justify-items: center;
+    transform: scale(0.8);
+}
+
+/* Logo positioning - Exact Figma coordinates for desktop */
+.hero-logo-icon {
+    position: relative;
+    left: 0;
+    z-index: var(--z-logo);
+    /* Logo BSI UMKM Centre has large canvas, adjust size for card */
+    width: 174px; 
+    height: 143.81px;
+    object-fit: contain;
+}
+
+/* ===============================
+   ABOUT SECTION
+   =============================== */
+.about {
+    padding-block: 80px;
+    background: var(--white);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-image {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 163, 157, 0.1);
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.about-text h2 {
+    color: var(--color-primer);
+    margin-bottom: 24px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.about-text h2 .highlight {
+    color: var(--color-sekunder);
+}
+
+.about-text p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 16px;
+    text-align: justify;
+}
+
+/* ===============================
+   PRODUCTS SECTION
+   =============================== */
+.products {
+    padding-block: 80px;
+    background: var(--white);
+}
+
+.products h2 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-primer);
+    margin-bottom: 8px;
+}
+
+.products h2 .highlight {
+    color: var(--color-sekunder);
+}
+
+.products-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 60px;
+    font-size: 18px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly adjusted for better flow */
+    gap: 32px;
+    margin-bottom: 40px;
+}
+
+.product-card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 163, 157, 0.1);
+    transition: transform 0.3s ease;
+    will-change: transform;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+}
+
+.product-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.product-category {
+    background: var(--color-primer);
+    color: var(--white);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+}
+
+.product-info {
+    padding: 24px;
+}
+
+.view-all-btn {
+    text-align: center;
+}
+
+/* ===============================
+   STATISTICS SECTION
+   =============================== */
+.stats {
+    padding-block: 80px;
+    background: var(--white);
+    position: relative;
+}
+
+.stats::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: var(--z-patterns);
+    background: var(--white) url("../images/Break Without Ring.svg") no-repeat center center;
+    background-size: cover;
+    opacity: 1;
+    pointer-events: none;
+}
+
+.stats-content {
+    position: relative;
+    z-index: var(--z-content);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.stat-item h3 {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--color-primer);
+    margin-bottom: 8px;
+}
+
+.stat-item h3 .highlight {
+    color: var(--color-sekunder);
+}
+
+.stat-item p {
+    color: var(--text-secondary); /* Corrected text color to white/light text in design */
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.stats-description {
+    text-align: center;
+    max-width: 800px;
+    margin-inline: auto;
+    color: var(--text-secondary); /* Corrected text color */
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* ===============================
+   VIDEO SECTION
+   =============================== */
+.video-section {
+    background: transparent;
+    padding-block: 80px;
+    text-align: center;
+    position: relative;
+}
+
+.video-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: var(--z-patterns);
+    background: var(--white) url("../images/Break Without Ring Green.webp") no-repeat center center;
+    background-size: cover;
+    opacity: 1;
+    pointer-events: none;
+}
+
+.video-content {
+    position: relative;
+    z-index: var(--z-content);
+}
+
+.video-section h2 {
+    color: var(--color-sekunder);
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.video-section p {
+    color: var(--white);
+    margin-bottom: 40px;
+    font-size: 18px;
+}
+
+.video-container {
+    max-width: 800px;
+    margin-inline: auto;
+    position: relative;
+    aspect-ratio: 16/9;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 163, 157, 0.2);
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* ===============================
+   PARTNERSHIP SECTION
+   =============================== */
+.partnership {
+    padding-block: 80px;
+    background: linear-gradient(135deg, rgba(247, 161, 42, 0.08), rgba(38, 183, 160, 0.08));
+    position: relative;
+}
+
+.partnership-content {
+    text-align: center;
+}
+
+.partnership h2 {
+    color: var(--color-primer);
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.partnership-map {
+    max-width: 520px;
+    margin-inline: auto;
+    background: var(--color-primer);
+    padding: 16px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.partnership-map iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+    border-radius: 8px;
+}
+
+.map-info {
+    background: var(--color-primer);
+    color: var(--white);
+    padding: 16px;
+    text-align: center;
+}
+
+.map-info h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.map-info p {
+    font-size: 12px;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    opacity: 0.9;
+}
+
+.map-button {
+    background: var(--color-sekunder);
+    color: var(--white);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Exact Figma hover states - Orange → Light Orange */
+.map-button:hover {
+    background: #FDECC8;
+    color: var(--color-sekunder);
+}
+
+/* ===============================
+   PARTNERS LOGO SECTION
+   =============================== */
+.partners {
+    padding-block: 60px;
+    text-align: center;
+    background: var(--white);
+}
+
+.partners h3 {
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.partners-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.partner-logo {
+    height: 60px;
+    max-width: 200px;
+    object-fit: contain;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.partner-logo:hover {
+    opacity: 1;
+}
+
+/* ===============================
+   FOOTER SECTION - Mask group.svg background
+   =============================== */
+.footer-background {
+    position: relative;
+    background: var(--white);
+    overflow: hidden;
+}
+
+.footer-background::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    background: var(--white) url("../images/Mask Group.svg") no-repeat center bottom;
+    background-size: cover;
+    z-index: var(--z-patterns);
+}
+
+footer {
+    background: transparent;
+    padding: 80px 0 40px;
+    color: var(--white);
+    position: relative;
+    z-index: var(--z-content);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.footer-logo-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--color-sekunder);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.footer-logo-text h3 {
+    color: var(--white);
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.footer-logo-text p {
+    color: var(--color-sekunder);
+    font-size: 12px;
+}
+
+.footer-address {
+    color: var(--white);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.contact-icon {
+    width: 16px;
+    height: 16px;
+    fill: var(--white);
+}
+
+.footer-contact {
+    /* Menghapus flex/grid untuk mobile */
+}
+
+.social-links {
+    margin-bottom: 24px;
+}
+
+.social-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+    color: var(--white);
+    font-size: 14px;
+}
+
+.social-icon {
+    width: 20px;
+    height: 20px;
+    fill: var(--white);
+}
+
+.footer-cta {
+    background: var(--white);
+    color: var(--color-primer);
+    padding: 12px 24px;
+    border-radius: 25px;
+    border: 2px solid var(--color-primer);
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.footer-cta:hover {
+    background: var(--color-primer);
+    color: var(--white);
+}
+
+/* ===============================
+   RESPONSIVE DESIGN - Mobile-first with max-width breakpoints
+   =============================== */
+@media (max-width: 1024px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .about-image {
+        order: -1; /* Pindahkan gambar ke atas di tata letak kolom tunggal */
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+        text-align: left; /* Kembalikan text-align ke kiri untuk elemen footer */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Mobile Navigation */
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: var(--shadow);
+        border-radius: 0 0 12px 12px;
+        z-index: var(--z-dropdown);
+        height: auto;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .btn-login-nav {
+        display: none; /* Sembunyikan tombol login terpisah di mobile untuk dimasukkan ke dalam menu */
+    }
+    
+    /* Tambahkan tombol login ke menu (jika diperlukan) */
+    /* .nav-menu.active .btn-login-nav { display: flex; width: 100%; margin-top: 10px; } */
+
+    .nav-btn {
+        padding: 12px 16px;
+        text-align: center;
+        font-size: 16px;
+        width: 100%;
+    }
+
+    .nav-logo .logo {
+        width: 140px !important;
+        height: auto !important;
+    }
+
+    .container {
+        padding-inline: 16px;
+    }
+
+    /* Hide decorative shapes on mobile */
+    .shape-right-up,
+    .shape-left-down {
+        display: none;
+    }
+
+    .hero {
+        padding-block: 60px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 24px;
+    }
+    
+    .footer-info, .footer-contact, .footer-social, .footer-cta-section {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .footer-logo {
+        justify-content: center;
+    }
+
+    .contact-item, .social-item {
+        justify-content: center;
+    }
+
+    .partners-logos {
+        gap: 30px;
+    }
+
+    .partner-logo {
+        height: 50px;
+        max-width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    .hero-text h2 {
+        font-size: 24px;
+        line-height: 1.2;
+    }
+
+    /* Responsive button sizing */
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        padding: 12px 24px;
+        font-size: 14px;
+        justify-content: center;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .hero-card {
+        padding: 24px;
+    }
+
+    /* Logo positioning responsive untuk mobile */
+    .hero-logo-icon {
+        left: 0;
+    }
+}
+
+/* ===============================
+   ANIMATIONS & TRANSITIONS - Performance optimized
+   =============================== */
+/* Page Load Animation */
+body {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+body.page-loaded {
+    opacity: 1;
+}
+
+/* Scroll Animations - using transform and opacity only */
+.hero-text,
+.hero-card,
+.about-text,
+.about-image,
+.product-card,
+.stat-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+    will-change: transform, opacity;
+}
+
+.hero-text.animate,
+.hero-card.animate,
+.about-text.animate,
+.about-image.animate,
+.product-card.animate,
+.stat-item.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered Animation for Product Cards */
+.product-card:nth-child(1).animate { transition-delay: 0.1s; }
+.product-card:nth-child(2).animate { transition-delay: 0.2s; }
+.product-card:nth-child(3).animate { transition-delay: 0.3s; }
+.product-card:nth-child(4).animate { transition-delay: 0.4s; }
+.product-card:nth-child(5).animate { transition-delay: 0.5s; }
+.product-card:nth-child(6).animate { transition-delay: 0.6s; }
+
+/* Header Scroll Effect - Diimplementasikan di JS */
+
+/* Button hover animations - Exact Figma specifications */
+.btn-primary,
+.btn-secondary,
+.btn-login-nav,
+.map-button {
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-login-nav:hover,
+.map-button:hover {
+    transform: translateY(-2px);
+}

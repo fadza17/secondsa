@@ -1,0 +1,1127 @@
+:root {
+  /* BSI Brand Colors - Exact Figma Specifications */
+  --color-primer: #00A39D;    /* BSI Teal - primary interactions */
+  --color-sekunder: #F8AD3C;  /* BSI Orange - secondary/highlights */
+  --success: #04C8BC;
+  --warning: #F9BD50;
+  
+  /* Legacy support */
+  --primer: #00A39D;
+  --sekunder: #F8AD3C;
+  --base-layer: #FFFFFF;
+  --green-50: #EFFEFC;
+  --green-500: #04C8BC;
+  --green-600: #00A39D;
+  --yellow-300: #F9BD50;
+  --yellow-400: #F8AD3C;
+
+  /* Neutral Colors - Figma Specified */
+  --white: #FFFFFF;
+  --black: #222222;
+  --gray-50: #F8F9FA;
+  --gray-100: #E9ECEF;
+  --gray-200: #DEE2E6;
+  --gray-300: #CED4DA;
+  --gray-500: #6C757D;
+  --gray-700: #495057;
+  --gray-900: #212529;
+  
+  /* Text Colors - Figma Typography */
+  --text-primary: #14142B;
+  --text-secondary: #4E4B66;
+  --text-muted: #6E7191;
+  --text-dark: #2C3E50;
+  --text-light: #7F8C8D;
+  
+  /* Layout - Exact Figma Measurements */
+  --container-max-width: 1200px;
+  --container-padding: 24px;
+  --border-radius: 12px; 
+  --border-radius-sm: 8px;
+  --shadow-card: 0 8px 24px rgba(20, 20, 43, 0.12);
+  --shadow-hover: 0 20px 50px rgba(20, 20, 43, 0.2);
+  --max-width: 1200px;
+  
+  /* Typography - Lato Family Figma Specs */
+  --font-family: 'Lato', sans-serif;
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-base: 16px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 24px;
+  --font-size-2xl: 36px;
+  --font-size-3xl: 48px; 
+  
+  /* Z-Index Management - BSI Guidelines */
+  --z-background: -1;
+  --z-base: 1;
+  --z-content: 10;
+  --z-navbar: 1000;
+  --z-dropdown: 1010;
+  --z-modal: 1020;
+}
+
+/* Global Reset - Performance Optimized */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--white); 
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  color: var(--text-primary);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+}
+
+/* Background Container - Mask group.svg Integration */
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--z-background);
+  pointer-events: none;
+}
+
+.mask-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--white);
+  background-image: url('../images/Mask group.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+}
+
+/* ===============================
+   NAVBAR INTEGRATION - BSI Brand Standards
+   =============================== */
+
+.navbar-wrapper {
+  position: relative;
+  top: 0;
+  z-index: var(--z-navbar);
+  width: 100%;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-100);
+  box-shadow: var(--shadow-card);
+}
+
+/* Decorative Shapes - Exact BSI positioning */
+.shape-right-up {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 77px;
+  height: 78px;
+  z-index: 1001;
+  pointer-events: none;
+  display: block;
+}
+
+/* PERBAIKAN: Shape Left Down - Correct BSI Brand Positioning */
+.shape-left-down {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  transform: rotate(180deg);
+  z-index: 1001;
+  pointer-events: none;
+}
+
+.navbar {
+  background: var(--base-layer);
+  box-shadow: 0px 2px 12px 0px rgba(20, 20, 43, 0.08);
+  position: relative;
+  width: 100%;
+  height: 80px;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 15px 30px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  z-index: 3;
+}
+
+.nav-logo .logo {
+  height: 45px;
+  width: auto;
+}
+
+.nav-logo a:hover {
+  transform: scale(1.05);
+}
+
+.nav-menu {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-family: var(--font-lato);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--primer);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  display: inline-block;
+}
+
+.nav-btn:hover {
+  opacity: 0.7;
+}
+
+/* Active state untuk katalog page */
+.nav-btn.active {
+  color: var(--color-primer);
+  background-color: rgba(0, 163, 157, 0.15);
+  font-weight: 700;
+}
+
+.btn-login-nav {
+  background: var(--primer);
+  border: none;
+  border-radius: 8px;
+  min-width: 120px;
+  height: 42px;
+  padding: 8px 16px;
+  font-family: var(--font-lato);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--base-layer);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-login-nav:hover {
+  background: #008A82;
+}
+
+/* Mobile Menu Toggle */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  gap: 4px;
+  z-index: 1002;
+}
+
+.nav-toggle span {
+  width: 25px;
+  height: 3px;
+  background: var(--color-primer);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.nav-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ===============================
+   MAIN CONTENT LAYOUT
+   =============================== */
+
+/* Main Container - Figma Layout */
+.main-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 40px var(--container-padding) 0;
+  position: relative;
+  z-index: var(--z-content);
+  min-height: calc(100vh - 80px);
+}
+
+/* Page Header - Exact Figma Specs */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.header-content h1 {
+  font-size: var(--font-size-3xl);    
+  font-weight: 900; 
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.header-content .highlight {
+  color: var(--color-primer);
+}
+
+.header-content p {
+  font-size: var(--font-size-md);
+  color: var(--text-secondary);
+  margin-top: 8px;
+  line-height: 1.6;
+}
+
+.product-stats {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.product-count {
+  font-size: var(--font-size-md);
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Content Layout - Sidebar + Products Grid */
+.content-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+/* Sidebar Filters - Figma Design */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: static;
+  top: 150px;
+}
+
+.filter-section {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.filter-header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border-bottom: 1px solid var(--gray-100);
+  transition: background-color 0.3s ease;
+}
+
+.filter-header:hover {
+  background-color: var(--gray-50);
+}
+
+.filter-header.active {
+  background-color: rgba(0, 163, 157, 0.05);
+}
+
+.filter-title {
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.chevron-icon {
+  width: 20px;
+  height: 20px;
+  fill: var(--text-secondary);
+  transition: transform 0.3s ease;
+}
+
+.filter-content {
+  padding: 16px 20px 20px;
+  display: none;
+}
+
+.filter-content.active {
+  display: block;
+}
+
+/* Category List - Figma Hierarchy */
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.category-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.category-item:hover {
+  background-color: var(--gray-50);
+}
+
+.category-item.active {
+  background-color: rgba(0, 163, 157, 0.1);
+  color: var(--color-primer);
+}
+
+.subcategory-list {
+  margin-left: 32px;
+  padding-top: 8px;
+  display: none;
+}
+
+.subcategory-list.active {
+  display: block;
+}
+
+.subcategory-item {
+  padding: 8px 16px;
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: var(--border-radius-sm);
+  transition: all 0.3s ease;
+  margin-bottom: 4px;
+}
+
+.subcategory-item:hover {
+  background-color: var(--gray-50);
+  color: var(--text-secondary);
+}
+
+.subcategory-item.active {
+  background-color: rgba(0, 163, 157, 0.1);
+  color: var(--color-primer);
+  font-weight: 600;
+}
+
+/* Price Filter - Radio Options */
+.price-ranges {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.price-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: var(--border-radius-sm);
+  transition: background-color 0.3s ease;
+}
+
+.price-option:hover {
+  background-color: var(--gray-50);
+}
+
+.price-option input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-primer);
+}
+
+.price-label {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Products Section - Grid Layout */
+.products-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Product Card - Exact Figma Design */
+.product-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-card);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.product-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card .shape-right-up,
+.product-card .shape-left-down {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.product-card .shape-right-up {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 77px;
+  height: 78px;
+  z-index: 1001;
+  pointer-events: none;
+  display: block;
+}
+
+/* Shape oranye (pojok kiri bawah) */
+.product-card .shape-left-down {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  transform: rotate(180deg);
+  z-index: 1001;
+  pointer-events: none;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-primer);
+}
+
+.product-image {
+  width: 100%;
+  height: 180px;
+  background: var(--gray-50);
+  border-radius: var(--border-radius-sm);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.05);
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.product-category {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 600;
+}
+
+.product-title {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.product-seller {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.product-price {
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  color: var(--color-primer);
+  margin-top: 4px;
+}
+
+.buy-button {
+  background: var(--color-primer);
+  color: var(--white);
+  border: none;
+  border-radius: 25px;
+  padding: 12px 20px;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.buy-button:hover {
+  background: var(--success);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 163, 157, 0.3);
+}
+
+/* Pagination - Figma Design */
+.pagination {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--gray-100);
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.pagination-arrow {
+  width: 44px;
+  height: 44px;
+  border: 2px solid var(--gray-200);
+  background: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination-arrow:hover {
+  border-color: var(--color-primer);
+  background: rgba(0, 163, 157, 0.05);
+}
+
+.pagination-arrow:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: var(--gray-200);
+}
+
+.pagination-arrow svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--text-secondary);
+}
+
+.pagination-dots {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.pagination-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gray-200);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination-dot.active {
+  width: 20px;
+  height: 12px;
+  border-radius: 6px;
+  background: var(--color-primer);
+}
+
+.pagination-text {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* ===============================
+   FOOTER BACKGROUND & POSITIONING - KONSISTEN DENGAN FAQ
+   =============================== */
+
+.footer-background {
+  position: relative;
+  background: transparent;
+  margin-top: 0;
+  overflow: visible;
+  padding: 220px 0 80px 0; /* Default spacing */
+}
+
+.footer-background::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-height: 750px; 
+  left: 0;
+  top: 0;
+  background: url("../images/footer.svg") no-repeat top center;
+  background-size: cover;
+  opacity: 1;
+  pointer-events: none;
+  z-index: 1;
+}
+
+footer {
+  position: relative;
+  z-index: 5;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 180px; 
+  color: white;
+}
+
+.footer-content-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: var(--container-max-width);
+  width: 100%;
+  padding: 0 24px;
+}
+
+/* ===============================
+   FOOTER STYLES - FOUR COLUMN LAYOUT
+   =============================== */
+
+.footer-content {
+  display: flex; 
+  align-items: flex-end; 
+  gap: 0; 
+  justify-content: space-between; 
+  width: 100%;
+  padding-bottom: 0; 
+}
+
+/* KOLOM 1: Logo dan Nama UMKM Center */
+.footer-left-content {
+  flex: none; 
+  width: 280px; 
+  border-right: 2px solid rgba(255, 255, 255, 0.8); 
+  padding: 0 40px 0 0; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; 
+  align-items: flex-start; 
+  height: 100%; 
+  min-height: 180px; 
+}
+
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px; 
+  margin-bottom: 0;
+  width: 174px; 
+}
+
+.footer-logo img {
+  width: 174px;
+  height: 143.81px; 
+  filter: drop-shadow(0px 0px 36px rgba(255, 255, 255, 0.5));
+  flex: none;
+  transition: filter 0.3s ease;
+}
+
+.footer-logo a {
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.footer-logo a:hover {
+  opacity: 0.8;
+}
+
+/* KOLOM 2: Kontak dan Alamat */
+.footer-contact-info {
+  flex: 1; 
+  max-width: 250px; 
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; 
+  align-items: flex-start;
+  gap: 8px; 
+  padding: 0 20px; 
+}
+
+.footer-address {
+  margin-top: 0;
+  margin-bottom: 0; 
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+  gap: 8px;
+  margin-bottom: 0; 
+}
+
+.contact-icon-svg {
+  width: 24px;
+  height: 24px;
+  fill: white;
+  flex-shrink: 0; 
+}
+
+.contact-item span {
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.footer-contact {
+  color: white;
+  line-height: 1.6;
+}
+
+/* KOLOM 3: Sosial Media */
+.footer-social-section {
+  flex: 1.5; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; 
+  align-items: flex-start;
+  height: 100%;
+  padding: 0 20px; 
+}
+
+.social-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; 
+}
+
+.social-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--white);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  fill: var(--white);
+  flex-shrink: 0;
+}
+
+/* KOLOM 4: Tombol CTA */
+.footer-cta-col {
+  flex: 1.2; 
+  display: flex;
+  justify-content: flex-end; 
+  align-items: flex-end; 
+  height: 100%;
+  padding: 0 0 0 20px; 
+}
+
+.footer-cta-button-new {
+  background: var(--color-primer, #00A39D);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 25px;
+  border: 2px solid var(--color-primer, #00A39D);
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.footer-cta-button-new:hover {
+  background: white;
+  color: var(--color-primer, #00A39D);
+  transform: translateY(-2px);
+}
+
+/* ===============================
+   RESPONSIVE DESIGN (FIXED STRUCTURE)
+   =============================== */
+
+/* Desktop to Tablet (1024px) */
+@media (max-width: 1024px) {
+  .content-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .sidebar {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  /* Footer Adjustments for Tablet */
+  .footer-background {
+    padding: 180px 0 60px 0;
+  }
+  
+  footer {
+    padding-top: 140px;
+  }
+}
+
+/* Tablet to Mobile (768px) */
+@media (max-width: 768px) {
+  /* Mobile Navigation */
+  .nav-toggle {
+    display: flex;
+  }
+  
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    flex-direction: column;
+    padding: 20px;
+    gap: 16px;
+    box-shadow: var(--shadow-card);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: var(--z-dropdown);
+  }
+  
+  .nav-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .nav-btn {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr; 
+  }
+
+  /* Footer full vertical stacking on mobile */
+  .footer-background {
+    padding: 160px 0 40px 0;
+  }
+  
+  footer {
+    padding-top: 120px;
+  }
+  
+  .footer-content-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 40px 24px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .footer-left-content {
+    width: 100%;
+    border-right: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+    padding: 0 0 30px 0;
+    align-items: center;
+    min-height: auto;
+  }
+  
+  .footer-contact-info, 
+  .footer-social-section, 
+  .footer-cta-col {
+    width: 100%;
+    max-width: none;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+  
+  .contact-item, 
+  .social-item {
+    justify-content: center;
+  }
+}
+
+/* Mobile Small (480px) */
+@media (max-width: 480px) {
+  .nav-logo .logo {
+    height: 40px;
+    max-height: 40px;
+  }
+  
+  .btn-login-nav {
+    padding: 10px 20px;
+    font-size: var(--font-size-sm);
+  }
+
+  /* Footer refinement for very small screens */
+  .footer-content-wrapper {
+    padding: 30px 0;
+  }
+  
+  .footer-logo img {
+    width: 140px;
+    height: auto;
+  }
+  
+  .footer-cta-button-new {
+    padding: 16px 32px;
+    font-size: 14px;
+  }
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus States for Accessibility */
+.nav-btn:focus-visible,
+.buy-button:focus-visible,
+.pagination-arrow:focus-visible,
+.pagination-dot:focus-visible {
+  outline: 3px solid var(--color-sekunder);
+  outline-offset: 2px;
+}
+
+/* Loading States */
+.product-card.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.product-card.loading .product-image {
+  background: linear-gradient(90deg, var(--gray-100) 25%, var(--gray-50) 50%, var(--gray-100) 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { 
+    background-position: 200% 0; 
+  }
+  100% { 
+    background-position: -200% 0; 
+  }
+}
+
+/* Print Styles */
+@media print {
+  .navbar-wrapper,
+  .sidebar,
+  .pagination,
+  .footer {
+    display: none;
+  }
+  
+  .main-container {
+    padding: 0;
+    max-width: none;
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  .product-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid var(--gray-200);
+  }
+  
+}
